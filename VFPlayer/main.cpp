@@ -8,4 +8,6 @@ int main(int argc, char *argv[])
 	gui::VFMainWindow w;
 	w.show();
 	return a.exec();
+
+
 }
