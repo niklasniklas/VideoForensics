@@ -13,6 +13,10 @@ namespace gui {
 		VFMainWindow(QWidget *parent = 0);
 		~VFMainWindow();
 
+	private slots:
+		void on_pushButton_clicked();
+		void on_pushButton_play_clicked();
+
 	private:
 		//	Ui::VFMainWindowClass ui;
 	};
