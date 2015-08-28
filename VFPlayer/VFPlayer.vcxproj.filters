@@ -33,12 +33,15 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Header Files\gui">
+      <UniqueIdentifier>{119e8e78-7840-4b56-be86-b8312dba534b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui">
+      <UniqueIdentifier>{0b005106-86ce-4f13-97f2-39076a7caacc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vfmainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_vfmainwindow.cpp">
@@ -59,11 +62,11 @@
     <ClCompile Include="GeneratedFiles\Release\moc_CVImageWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="vfmainwindow.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="vfmainwindow.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="vfmainwindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
@@ -72,6 +75,9 @@
     </CustomBuild>
     <CustomBuild Include="CVImageWidget.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vfmainwindow.h">
+      <Filter>Header Files\gui</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
