@@ -62,7 +62,7 @@
     <ClCompile Include="GeneratedFiles\Release\moc_CVImageWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="vfmainwindow.cpp">
+    <ClCompile Include="gui\vfmainwindow.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -76,7 +76,7 @@
     <CustomBuild Include="CVImageWidget.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="vfmainwindow.h">
+    <CustomBuild Include="gui\vfmainwindow.h">
       <Filter>Header Files\gui</Filter>
     </CustomBuild>
   </ItemGroup>
