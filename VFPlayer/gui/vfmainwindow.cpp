@@ -9,6 +9,7 @@ namespace gui {
 
 		cv::Mat img = cv::imread("D:\\6.Testdata\\Bilder\\fruits.jpg");
 		imshow("Lena2", img);
+
 	}
 
 	VFMainWindow::~VFMainWindow()
