@@ -4,16 +4,17 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_vfmainwindow.h"
 
-class VFMainWindow : public QMainWindow
-{
-	Q_OBJECT
+namespace gui {
+	class VFMainWindow : public QMainWindow, private Ui::VFMainWindowClass
+	{
+		Q_OBJECT
 
-public:
-	VFMainWindow(QWidget *parent = 0);
-	~VFMainWindow();
+	public:
+		VFMainWindow(QWidget *parent = 0);
+		~VFMainWindow();
 
-private:
-	Ui::VFMainWindowClass ui;
-};
-
+	private:
+		//	Ui::VFMainWindowClass ui;
+	};
+}
 #endif // VFMAINWINDOW_H
