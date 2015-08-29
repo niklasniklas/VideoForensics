@@ -23,6 +23,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
+#include "cvimagewidget.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -38,7 +39,7 @@ public:
     QSlider *horizontalSlider_timeline;
     QCheckBox *checkBox_resizeVideo;
     QPushButton *pushButton_showVideo;
-    QWidget *widget_video;
+    CVImageWidget *widget_video;
     QPushButton *pushButton_exportStillImage;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -77,7 +78,7 @@ public:
         pushButton_showVideo = new QPushButton(centralWidget);
         pushButton_showVideo->setObjectName(QStringLiteral("pushButton_showVideo"));
         pushButton_showVideo->setGeometry(QRect(710, 200, 151, 31));
-        widget_video = new QWidget(centralWidget);
+        widget_video = new CVImageWidget(centralWidget);
         widget_video->setObjectName(QStringLiteral("widget_video"));
         widget_video->setGeometry(QRect(10, 0, 681, 441));
         pushButton_exportStillImage = new QPushButton(centralWidget);
@@ -86,7 +87,7 @@ public:
         VFMainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(VFMainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 996, 21));
+        menuBar->setGeometry(QRect(0, 0, 996, 31));
         VFMainWindowClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(VFMainWindowClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

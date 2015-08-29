@@ -20,12 +20,15 @@ namespace gui {
 	void VFMainWindow::on_pushButton_clicked()
 	{
 		cv::Mat img = cv::imread("C:\\2.Testdata\\Bilder\\fruits.jpg");
-		imshow("Lena", img);
+		widget_video->showImage(img);
+		//imshow("Lena", img);
 	}
 
 	void VFMainWindow::on_pushButton_play_clicked()
 	{
 		cv::Mat img = cv::imread("D:\\6.Testdata\\Bilder\\fruits.jpg");
+
+
 		imshow("Lena2", img);
 		// 
 	}
