@@ -168,6 +168,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gui\vfmainwindow.cpp" />
+    <ClCompile Include="VideoModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gui\vfmainwindow.h">
@@ -210,6 +211,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="VideoModel.h" />
     <CustomBuild Include="CVImageWidget.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing CVImageWidget.h...</Message>

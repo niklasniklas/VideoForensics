@@ -39,6 +39,12 @@
     <Filter Include="Source Files\gui">
       <UniqueIdentifier>{0b005106-86ce-4f13-97f2-39076a7caacc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\sim">
+      <UniqueIdentifier>{686eaebf-3089-42ed-af22-4c7a04f017fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sim">
+      <UniqueIdentifier>{686bead2-670e-4d02-bd9b-0a18bb5a9042}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +71,9 @@
     <ClCompile Include="gui\vfmainwindow.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
+    <ClCompile Include="VideoModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="vfmainwindow.ui">
@@ -83,6 +92,9 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_vfmainwindow.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoModel.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
