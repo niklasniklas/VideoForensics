@@ -71,8 +71,8 @@
     <ClCompile Include="gui\vfmainwindow.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
-    <ClCompile Include="VideoModel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="sim\VideoModel.cpp">
+      <Filter>Source Files\sim</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,8 +93,8 @@
     <ClInclude Include="GeneratedFiles\ui_vfmainwindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="VideoModel.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="sim\VideoModel.h">
+      <Filter>Header Files\sim</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
