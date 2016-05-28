@@ -3,7 +3,7 @@
 namespace sim {
 
 	Sequence::Sequence()
-	{
+{
 	}
 
 
@@ -26,4 +26,4 @@ namespace sim {
 		return false;
 	}
 
-}
+	}
