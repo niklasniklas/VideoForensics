@@ -3,16 +3,18 @@
 
 namespace sim
 {
-	class VideoModel
+	class VideoData
 	{
 	public:
-		VideoModel();
-		~VideoModel();
+		VideoData();
+		~VideoData();
 
 		void loadVideo();
+		cv::Mat nextFrame();
 
 	private:
 		cv::VideoCapture video;
+		std::string filename;
 
 	};
 

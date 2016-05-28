@@ -1,5 +1,6 @@
 #include "vfmainwindow.h"
 #include "opencv2\opencv.hpp"
+#include "VideoController.h"
 
 namespace gui {
 	VFMainWindow::VFMainWindow(QWidget *parent)
@@ -17,20 +18,34 @@ namespace gui {
 
 	}
 
+	void VFMainWindow::initWindow(VideoController *pCtrl)
+	{
+		pController = pCtrl;
+	}
+
+	void VFMainWindow::updateView(cv::Mat img)
+	{
+//		cv::Mat img = cv::imread("C:\\2.Testdata\\Bilder\\boldt.jpg");
+		widget_video->showImage(img);
+	}
+
 	void VFMainWindow::on_pushButton_clicked()
 	{
-		cv::Mat img = cv::imread("C:\\2.Testdata\\Bilder\\fruits.jpg");
-		widget_video->showImage(img);
+		for (int i = 0; i < 100; i++)
+		{
+			pController->playPressed();
+		}
+//		cv::Mat img = cv::imread("C:\\2.Testdata\\Bilder\\fruits.jpg");
+//		widget_video->showImage(img);
 		//imshow("Lena", img);
 	}
 
 	void VFMainWindow::on_pushButton_play_clicked()
 	{
-		cv::Mat img = cv::imread("D:\\6.Testdata\\Bilder\\fruits.jpg");
+		pController->playPressed();
 
+		//VideoController ctrl;
 
-		imshow("Lena2", img);
-		// 
 	}
 
 

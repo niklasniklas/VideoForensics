@@ -49,12 +49,12 @@ public:
     {
         if (VFMainWindowClass->objectName().isEmpty())
             VFMainWindowClass->setObjectName(QStringLiteral("VFMainWindowClass"));
-        VFMainWindowClass->resize(996, 773);
+        VFMainWindowClass->resize(1088, 853);
         centralWidget = new QWidget(VFMainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton_play = new QPushButton(centralWidget);
         pushButton_play->setObjectName(QStringLiteral("pushButton_play"));
-        pushButton_play->setGeometry(QRect(120, 480, 75, 31));
+        pushButton_play->setGeometry(QRect(80, 690, 75, 31));
         label_exportPath = new QLabel(centralWidget);
         label_exportPath->setObjectName(QStringLiteral("label_exportPath"));
         label_exportPath->setGeometry(QRect(730, 310, 101, 16));
@@ -63,13 +63,13 @@ public:
         pushButton_loadVideo->setGeometry(QRect(710, 10, 111, 23));
         label_framecount = new QLabel(centralWidget);
         label_framecount->setObjectName(QStringLiteral("label_framecount"));
-        label_framecount->setGeometry(QRect(720, 520, 181, 31));
+        label_framecount->setGeometry(QRect(720, 730, 181, 31));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(250, 450, 121, 51));
+        pushButton->setGeometry(QRect(230, 670, 121, 51));
         horizontalSlider_timeline = new QSlider(centralWidget);
         horizontalSlider_timeline->setObjectName(QStringLiteral("horizontalSlider_timeline"));
-        horizontalSlider_timeline->setGeometry(QRect(70, 530, 581, 19));
+        horizontalSlider_timeline->setGeometry(QRect(30, 740, 581, 19));
         horizontalSlider_timeline->setMaximum(200);
         horizontalSlider_timeline->setOrientation(Qt::Horizontal);
         checkBox_resizeVideo = new QCheckBox(centralWidget);
@@ -87,7 +87,7 @@ public:
         VFMainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(VFMainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 996, 31));
+        menuBar->setGeometry(QRect(0, 0, 1088, 26));
         VFMainWindowClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(VFMainWindowClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
