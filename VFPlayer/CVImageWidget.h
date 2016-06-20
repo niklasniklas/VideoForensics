@@ -8,7 +8,9 @@ class CVImageWidget : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit CVImageWidget(QWidget *parent = 0) : QWidget(parent) {}
+	explicit CVImageWidget(QWidget *parent = 0) : QWidget(parent) {
+		setMouseTracking(true);
+	}
 
 	QSize sizeHint() const { return _qimage.size(); }
 	QSize minimumSizeHint() const { return _qimage.size(); }
@@ -45,6 +47,7 @@ protected:
 		painter.drawImage(QPoint(0,0), _qimage);
 		painter.end();
 	}
+	void mousePressEvent(QMouseEvent* event);
 
 	QImage _qimage;
 	cv::Mat _tmp;

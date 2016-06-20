@@ -17,14 +17,19 @@ namespace gui {
 
 		void initWindow(VideoController* pCtrl);
 
+	signals: 
+//		void playPausebutton();
+
 	private slots:
 		void on_pushButton_clicked();
 		void on_pushButton_play_clicked();
+		void on_pushButton_exportStillImage_clicked();
 		void updateView(cv::Mat img);
 
 	private:
 		//	Ui::VFMainWindowClass ui;
 		VideoController *pController;
+		void initSlider();
 	};
 }
 #endif // VFMAINWINDOW_H

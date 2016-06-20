@@ -26,6 +26,26 @@ namespace sim
 		return frame;
 	}
 
+	void VideoData::saveCurrent(std::string str)
+	{
+		//cv::imwrite(str,)
+	}
+
+	int VideoData::getVideolength()
+	{
+		double d = video.get(CV_CAP_PROP_FRAME_COUNT);
+		return int(d);
+	}
+
+
+	//capture.get(CV_CAP_PROP_POS_FRAMES); // retrieves the current frame number
+	//and also :
+
+	//capture.get(CV_CAP_PROP_FRAME_COUNT); // retuns the number of total frames 
+
+
+
+
 	//if (!cap.isOpened()) // check if we succeeded
 	//	return;
 

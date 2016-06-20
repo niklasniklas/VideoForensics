@@ -12,6 +12,9 @@ namespace sim
 		void loadVideo();
 		cv::Mat nextFrame();
 
+		void saveCurrent(std::string str);
+		int getVideolength();
+
 	private:
 		cv::VideoCapture video;
 		std::string filename;

@@ -57,7 +57,7 @@ public:
         pushButton_play->setGeometry(QRect(80, 690, 75, 31));
         label_exportPath = new QLabel(centralWidget);
         label_exportPath->setObjectName(QStringLiteral("label_exportPath"));
-        label_exportPath->setGeometry(QRect(730, 310, 101, 16));
+        label_exportPath->setGeometry(QRect(920, 740, 101, 16));
         pushButton_loadVideo = new QPushButton(centralWidget);
         pushButton_loadVideo->setObjectName(QStringLiteral("pushButton_loadVideo"));
         pushButton_loadVideo->setGeometry(QRect(710, 10, 111, 23));
@@ -83,7 +83,7 @@ public:
         widget_video->setGeometry(QRect(10, 0, 681, 441));
         pushButton_exportStillImage = new QPushButton(centralWidget);
         pushButton_exportStillImage->setObjectName(QStringLiteral("pushButton_exportStillImage"));
-        pushButton_exportStillImage->setGeometry(QRect(720, 260, 121, 41));
+        pushButton_exportStillImage->setGeometry(QRect(910, 690, 121, 41));
         VFMainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(VFMainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
