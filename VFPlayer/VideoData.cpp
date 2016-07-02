@@ -4,7 +4,7 @@ namespace sim
 {
 	VideoData::VideoData()
 	{
-		filename = "C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi";
+//		filename = "C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi";
 	}
 
 
@@ -12,9 +12,11 @@ namespace sim
 	{
 	}
 
-	void VideoData::loadVideo()
+	bool VideoData::loadVideo(std::string name)
 	{
-		video.open(filename);
+		filepath = name;
+		bool result = video.open(name);
+		return result;
 		//cv::VideoCapture cap(filename); // open videofile
 		
 	}
@@ -35,6 +37,17 @@ namespace sim
 	{
 		double d = video.get(CV_CAP_PROP_FRAME_COUNT);
 		return int(d);
+	}
+
+	int VideoData::getFrameNumber()
+	{
+		double d = video.get(CV_CAP_PROP_POS_FRAMES);
+		return int(d);
+	}
+
+	void VideoData::setFrameNumber(int no)
+	{
+		video.set(CV_CAP_PROP_POS_FRAMES, no);
 	}
 
 

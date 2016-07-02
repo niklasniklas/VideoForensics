@@ -7,7 +7,7 @@ namespace gui {
 		: QMainWindow(parent)
 	{
 		setupUi(this);
-		horizontalSlider_timeline->setRange(0, 200);
+//		horizontalSlider_timeline->setRange(0, 200);
 
 
 	}
@@ -20,35 +20,53 @@ namespace gui {
 	void VFMainWindow::initWindow(VideoController *pCtrl)
 	{
 		pController = pCtrl;
+		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), label_exportPath, SLOT(setNum(int)));
+		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), pController, SLOT(setVideoFrame(int)));
 //		connect(this, SIGNAL(playPausebutton()), pController, SLOT(togglePlayPause()));
-		initSlider();
+//		initSlider();
 	}
 
 	void VFMainWindow::initSlider()
 	{
 		int sliderlength = pController->getVideoLength();
 		horizontalSlider_timeline->setRange(0, sliderlength);
-		pushButton_play->setText("Xxxx");
 	}
+
 
 	void VFMainWindow::updateView(cv::Mat img)
 	{
 		widget_video->showImage(img);
 	}
 
+
+	void VFMainWindow::updateSlider(int frameNo)
+	{
+		horizontalSlider_timeline->setValue(frameNo);
+	}
+
+
+	void VFMainWindow::updateButtons(bool playing)
+	{
+		if (playing)
+			pushButton_play->setText("Pause");
+		else
+			pushButton_play->setText("Play");
+	}
+
+
 	void VFMainWindow::on_pushButton_clicked()
 	{
 		pController->nextFrame();
 	}
 
+
 	void VFMainWindow::on_pushButton_play_clicked()
 	{
 		pController->togglePlayPause();
-		pushButton_play->setText("Pause");
-
 		//		emit playPausebutton();
 
 	}
+
 
 	void VFMainWindow::on_pushButton_exportStillImage_clicked()
 	{
@@ -59,7 +77,14 @@ namespace gui {
 	}
 
 
+	void VFMainWindow::on_pushButton_loadVideo_clicked()
+	{
+		bool result = pController->loadVideo("C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi");
 
+		if (result)
+			initSlider();
+
+	}
 } // namespace
 
 

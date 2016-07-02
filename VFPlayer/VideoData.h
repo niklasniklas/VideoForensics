@@ -9,15 +9,17 @@ namespace sim
 		VideoData();
 		~VideoData();
 
-		void loadVideo();
+		bool loadVideo(std::string name);
 		cv::Mat nextFrame();
 
 		void saveCurrent(std::string str);
-		int getVideolength();
+		int  getVideolength();
+		int  getFrameNumber();
+		void setFrameNumber(int no);
 
 	private:
 		cv::VideoCapture video;
-		std::string filename;
+		std::string filepath;
 
 	};
 

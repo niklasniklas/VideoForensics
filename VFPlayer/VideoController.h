@@ -20,15 +20,20 @@ public:
 	void nextFrame();
 	void exportStill();
 	int getVideoLength();
+	bool loadVideo(std::string filename);
 
 private slots:
 //	void togglePlayPause();
+	void setVideoFrame(int no);
 
 signals:
 	void updateView(cv::Mat img);
+	void updateSlider(int no);
+	void updateButtons(bool playing);
 
 protected:
 	void timerEvent(QTimerEvent *event);
+	void updateViews();
 
 private:
 	sim::VideoData	data;

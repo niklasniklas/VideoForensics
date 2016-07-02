@@ -24,7 +24,11 @@ namespace gui {
 		void on_pushButton_clicked();
 		void on_pushButton_play_clicked();
 		void on_pushButton_exportStillImage_clicked();
+		void on_pushButton_loadVideo_clicked();
+		//my slots
 		void updateView(cv::Mat img);
+		void updateSlider(int frameNo);
+		void updateButtons(bool playing);
 
 	private:
 		//	Ui::VFMainWindowClass ui;
