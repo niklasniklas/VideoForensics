@@ -29,6 +29,7 @@ namespace gui {
 		void updateView(cv::Mat img);
 		void updateSlider(int frameNo);
 		void updateButtons(bool playing);
+		void fromModel(int NN);
 
 	private:
 		//	Ui::VFMainWindowClass ui;

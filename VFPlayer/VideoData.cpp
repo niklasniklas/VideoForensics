@@ -16,16 +16,15 @@ namespace sim
 	{
 		filepath = name;
 		bool result = video.open(name);
+		nextFrame();
 		return result;
 		//cv::VideoCapture cap(filename); // open videofile
 		
 	}
 
-	cv::Mat VideoData::nextFrame()
+	void VideoData::nextFrame()
 	{
-		cv::Mat frame;
-		video >> frame;
-		return frame;
+		video >> currentFrame;
 	}
 
 	void VideoData::saveCurrent(std::string str)
@@ -48,8 +47,14 @@ namespace sim
 	void VideoData::setFrameNumber(int no)
 	{
 		video.set(CV_CAP_PROP_POS_FRAMES, no);
+		video.retrieve(currentFrame);
 	}
 
+
+	cv::Mat VideoData::getCurrentFrame()
+	{
+		return currentFrame;
+	}
 
 	//capture.get(CV_CAP_PROP_POS_FRAMES); // retrieves the current frame number
 	//and also :

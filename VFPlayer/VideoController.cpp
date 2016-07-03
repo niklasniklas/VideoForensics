@@ -11,7 +11,10 @@ VideoController::VideoController()
 	connect(this, SIGNAL(updateSlider(int)), &mainWnd, SLOT(updateSlider(int)));
 	connect(this, SIGNAL(updateButtons(bool)), &mainWnd, SLOT(updateButtons(bool)));
 
+	connect(this, SIGNAL(sendToGUI(int)), &mainWnd, SLOT(fromModel(int)));//HÄR
+
 	stillPlay = false;
+	NN = 0; //HÄR
 
 }
 
@@ -21,14 +24,14 @@ VideoController::~VideoController()
 }
 void VideoController::updateViews()
 {
-	emit updateView(currentFrame);
+	emit updateView(data.getCurrentFrame());
 	emit updateSlider(data.getFrameNumber());
-
+	emit updateButtons(stillPlay);
 }
 
 void VideoController::nextFrame()
 {
-	currentFrame = data.nextFrame();
+	data.nextFrame();
 	updateViews();
 }
 
@@ -36,7 +39,7 @@ void VideoController::timerEvent(QTimerEvent *event)
 {
 	if(stillPlay)
 	{
-		currentFrame = data.nextFrame();
+		data.nextFrame();
 	}
 	updateViews();
 }
@@ -55,7 +58,7 @@ void VideoController::togglePlayPause()
 
 void VideoController::exportStill()
 {
-	cv::imwrite("C:\\Temp\\img01.tif", currentFrame);
+	cv::imwrite("C:\\Temp\\img01.tif", data.getCurrentFrame());//HÄR
 	//data.saveCurrent("C:\\Temp\\img01.tif");
 
 }
@@ -67,11 +70,15 @@ int VideoController::getVideoLength()
 
 bool VideoController::loadVideo(std::string filename)
 {
-	return data.loadVideo(filename);
+	bool result = data.loadVideo(filename);
+	updateViews();
+
+	return result;
 }
 
 void VideoController::setVideoFrame(int no)
 {
+	emit sendToGUI(no);//HÄR
 	data.setFrameNumber(no);
 	updateViews();
 }

@@ -20,10 +20,16 @@ namespace gui {
 	void VFMainWindow::initWindow(VideoController *pCtrl)
 	{
 		pController = pCtrl;
-		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), label_exportPath, SLOT(setNum(int)));
+//		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), label_exportPath, SLOT(setNum(int)));
 		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), pController, SLOT(setVideoFrame(int)));
 //		connect(this, SIGNAL(playPausebutton()), pController, SLOT(togglePlayPause()));
 //		initSlider();
+	}
+
+	void VFMainWindow::fromModel(int NN)
+	{
+		QString tmp = QString::number(NN);
+		label_exportPath->setText(tmp);
 	}
 
 	void VFMainWindow::initSlider()

@@ -30,6 +30,7 @@ signals:
 	void updateView(cv::Mat img);
 	void updateSlider(int no);
 	void updateButtons(bool playing);
+	void sendToGUI(int);
 
 protected:
 	void timerEvent(QTimerEvent *event);
@@ -39,8 +40,9 @@ private:
 	sim::VideoData	data;
 	bool			stillPlay;
 	QBasicTimer		timer;
-	cv::Mat			currentFrame;
 
+
+	int NN;
 	
 };
 
