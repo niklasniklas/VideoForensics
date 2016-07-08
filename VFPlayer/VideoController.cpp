@@ -82,3 +82,8 @@ void VideoController::setVideoFrame(int no)
 	data.setFrameNumber(no);
 	updateViews();
 }
+
+void VideoController::requestedUpdate()
+{
+	int i = 0;
+}

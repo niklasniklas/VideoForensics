@@ -19,12 +19,14 @@ namespace gui {
 
 	signals: 
 //		void playPausebutton();
+		void requestUpdate();
 
 	private slots:
 		void on_pushButton_clicked();
 		void on_pushButton_play_clicked();
 		void on_pushButton_exportStillImage_clicked();
 		void on_pushButton_loadVideo_clicked();
+		void on_horizontalSlider_timeline_sliderReleased();
 		//my slots
 		void updateView(cv::Mat img);
 		void updateSlider(int frameNo);

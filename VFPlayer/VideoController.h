@@ -25,6 +25,7 @@ public:
 private slots:
 //	void togglePlayPause();
 	void setVideoFrame(int no);
+	void requestedUpdate();
 
 signals:
 	void updateView(cv::Mat img);

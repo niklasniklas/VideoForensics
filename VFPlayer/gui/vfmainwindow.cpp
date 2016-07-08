@@ -22,6 +22,7 @@ namespace gui {
 		pController = pCtrl;
 //		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), label_exportPath, SLOT(setNum(int)));
 		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), pController, SLOT(setVideoFrame(int)));
+		connect(horizontalSlider_timeline, SIGNAL(requestUpdate()), pController, SLOT(requestedUpdate()));
 //		connect(this, SIGNAL(playPausebutton()), pController, SLOT(togglePlayPause()));
 //		initSlider();
 	}
@@ -90,6 +91,12 @@ namespace gui {
 		if (result)
 			initSlider();
 
+	}
+
+	void  VFMainWindow::on_horizontalSlider_timeline_sliderReleased()
+	{
+		int i = 0;
+		emit requestUpdate();
 	}
 } // namespace
 
