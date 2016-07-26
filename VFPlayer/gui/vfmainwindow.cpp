@@ -8,13 +8,15 @@ namespace gui {
 	{
 		setupUi(this);
 //		horizontalSlider_timeline->setRange(0, 200);
-
+		wg = NULL;
 
 	}
 
 	VFMainWindow::~VFMainWindow()
 	{
-
+		// HÄR: anropa detta i "OnExit för VMAinWIndow"
+//		wg->close();
+		//delete wg;
 	}
 
 	void VFMainWindow::initWindow(VideoController *pCtrl)
@@ -22,7 +24,7 @@ namespace gui {
 		pController = pCtrl;
 //		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), label_exportPath, SLOT(setNum(int)));
 		connect(horizontalSlider_timeline, SIGNAL(valueChanged(int)), pController, SLOT(setVideoFrame(int)));
-		connect(horizontalSlider_timeline, SIGNAL(requestUpdate()), pController, SLOT(requestedUpdate()));
+		connect(this, SIGNAL(requestUpdate()), pController, SLOT(requestedUpdate()));
 //		connect(this, SIGNAL(playPausebutton()), pController, SLOT(togglePlayPause()));
 //		initSlider();
 	}
@@ -33,16 +35,27 @@ namespace gui {
 		label_exportPath->setText(tmp);
 	}
 
+	void VFMainWindow::setCurrentTime(std::string str)
+	{
+		label_currenttime->setText(QString::fromStdString(str));
+	}
+
 	void VFMainWindow::initSlider()
 	{
 		int sliderlength = pController->getVideoLength();
-		horizontalSlider_timeline->setRange(0, sliderlength);
+		horizontalSlider_timeline->setRange(1, sliderlength);
+
+		int b, a = 5000;
+		b = a / 3600;
+
 	}
 
 
 	void VFMainWindow::updateView(cv::Mat img)
 	{
 		widget_video->showImage(img);
+		if (wg!=NULL)
+			wg->showImage(img);
 	}
 
 
@@ -61,11 +74,15 @@ namespace gui {
 	}
 
 
-	void VFMainWindow::on_pushButton_clicked()
+	void VFMainWindow::on_pushButton_nextFrame_clicked()
 	{
 		pController->nextFrame();
 	}
 
+	void VFMainWindow::on_pushButton_prevFrame_clicked()
+	{
+		pController->prevFrame();
+	}
 
 	void VFMainWindow::on_pushButton_play_clicked()
 	{
@@ -75,30 +92,36 @@ namespace gui {
 	}
 
 
+	void VFMainWindow::on_pushButton_exportStills_clicked()
+	{
+		pController->exportStills("C:\\Temp\\", 10, 40); //HÄR 12/7
+	}
+
+
 	void VFMainWindow::on_pushButton_exportStillImage_clicked()
 	{
 		pController->exportStill();
-		CVImageWidget *wg = new CVImageWidget();
+		wg = new CVImageWidget();
 		wg->resize(200, 300);
 		wg->show();
+		wg->resize(200, 300);
+
 	}
 
 
 	void VFMainWindow::on_pushButton_loadVideo_clicked()
 	{
-		bool result = pController->loadVideo("C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi");
+		bool ok = pController->loadVideo("C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi");
 
-		if (result)
+		if (ok)
 			initSlider();
-
 	}
 
 	void  VFMainWindow::on_horizontalSlider_timeline_sliderReleased()
 	{
-		int i = 0;
 		emit requestUpdate();
 	}
-} // namespace
+} // namespace gui
 
 
 /**SLASK**/

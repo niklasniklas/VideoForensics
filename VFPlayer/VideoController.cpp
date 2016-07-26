@@ -11,7 +11,8 @@ VideoController::VideoController()
 	connect(this, SIGNAL(updateSlider(int)), &mainWnd, SLOT(updateSlider(int)));
 	connect(this, SIGNAL(updateButtons(bool)), &mainWnd, SLOT(updateButtons(bool)));
 
-	connect(this, SIGNAL(sendToGUI(int)), &mainWnd, SLOT(fromModel(int)));//HÄR
+	connect(this, SIGNAL(sendToGUI(int)), &mainWnd, SLOT(fromModel(int)));//HÄR1
+	connect(this, SIGNAL(updateCurrentTime(std::string)), &mainWnd, SLOT(setCurrentTime(std::string)));
 
 	stillPlay = false;
 	NN = 0; //HÄR
@@ -22,17 +23,24 @@ VideoController::VideoController()
 VideoController::~VideoController()
 {
 }
-void VideoController::updateViews()
+void VideoController::updateGUI()
 {
 	emit updateView(data.getCurrentFrame());
-	emit updateSlider(data.getFrameNumber());
+	emit updateSlider(data.getCurrentFrameNumber());
+	emit updateCurrentTime(data.getCurrentTime());
 	emit updateButtons(stillPlay);
 }
 
 void VideoController::nextFrame()
 {
 	data.nextFrame();
-	updateViews();
+	updateGUI();
+}
+
+void VideoController::prevFrame()
+{
+	data.prevFrame();
+	updateGUI();
 }
 
 void VideoController::timerEvent(QTimerEvent *event)
@@ -41,7 +49,7 @@ void VideoController::timerEvent(QTimerEvent *event)
 	{
 		data.nextFrame();
 	}
-	updateViews();
+	updateGUI();
 }
 
 
@@ -71,7 +79,7 @@ int VideoController::getVideoLength()
 bool VideoController::loadVideo(std::string filename)
 {
 	bool result = data.loadVideo(filename);
-	updateViews();
+	updateGUI();
 
 	return result;
 }
@@ -79,11 +87,15 @@ bool VideoController::loadVideo(std::string filename)
 void VideoController::setVideoFrame(int no)
 {
 	emit sendToGUI(no);//HÄR
-	data.setFrameNumber(no);
-	updateViews();
+	data.setCurrentFrameNumber(no);
+	updateGUI();
 }
 
 void VideoController::requestedUpdate()
 {
-	int i = 0;
+	updateGUI();
 }
+
+// HÄR
+// Förvirrandde med Updateview o UpdateviewS. 
+// Döpa om updateViewS till updateGUI() ?

@@ -11,13 +11,16 @@ namespace sim
 
 		bool loadVideo(std::string name);
 		void nextFrame();
+		void prevFrame();
+		void jumpFrames(int amount);
 
-		void saveCurrent(std::string str);
+		void saveCurrentFrame(std::string str);
 		int  getVideolength();
-		int  getFrameNumber();
-		void setFrameNumber(int no);
+		int  getCurrentFrameNumber();
+		void setCurrentFrameNumber(int no);
 
-		cv::Mat getCurrentFrame();
+		std::string getCurrentTime();
+		cv::Mat		getCurrentFrame();
 
 	private:
 		cv::VideoCapture	video;

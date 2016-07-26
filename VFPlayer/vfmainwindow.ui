@@ -6,27 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1088</width>
-    <height>853</height>
+    <width>1111</width>
+    <height>858</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>VFMainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton_play">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>690</y>
-      <width>75</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Play</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_exportPath">
     <property name="geometry">
      <rect>
@@ -43,8 +30,8 @@
    <widget class="QPushButton" name="pushButton_loadVideo">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>10</y>
+      <x>50</x>
+      <y>620</y>
       <width>111</width>
       <height>23</height>
      </rect>
@@ -56,7 +43,7 @@
    <widget class="QLabel" name="label_framecount">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>640</x>
       <y>730</y>
       <width>181</width>
       <height>31</height>
@@ -64,19 +51,6 @@
     </property>
     <property name="text">
      <string>sign/slot w slider</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>670</y>
-      <width>121</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
     </property>
    </widget>
    <widget class="QSlider" name="horizontalSlider_timeline">
@@ -98,9 +72,9 @@
    <widget class="QCheckBox" name="checkBox_resizeVideo">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>70</y>
-      <width>171</width>
+      <x>440</x>
+      <y>630</y>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -111,8 +85,8 @@
    <widget class="QPushButton" name="pushButton_showVideo">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>200</y>
+      <x>620</x>
+      <y>630</y>
       <width>151</width>
       <height>31</height>
      </rect>
@@ -144,13 +118,92 @@
      <string>Export Image</string>
     </property>
    </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>690</y>
+      <width>295</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_prevFrame">
+       <property name="text">
+        <string>Prev</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_play">
+       <property name="text">
+        <string>Play</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_nextFrame">
+       <property name="text">
+        <string>Next</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_Start">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>540</y>
+      <width>41</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_Stop">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>540</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_exportStills">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>540</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Export Stills</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_currenttime">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>770</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1088</width>
+     <width>1111</width>
      <height>26</height>
     </rect>
    </property>

@@ -18,7 +18,9 @@ public:
 
 	void togglePlayPause();
 	void nextFrame();
+	void prevFrame();
 	void exportStill();
+	void exportStills(std::string, int startFrame, int endFrame){}; //HÄR 12/7
 	int getVideoLength();
 	bool loadVideo(std::string filename);
 
@@ -31,11 +33,12 @@ signals:
 	void updateView(cv::Mat img);
 	void updateSlider(int no);
 	void updateButtons(bool playing);
-	void sendToGUI(int);
+	void sendToGUI(int);					//HÄR1
+	void updateCurrentTime(std::string);
 
 protected:
 	void timerEvent(QTimerEvent *event);
-	void updateViews();
+	void updateGUI();
 
 private:
 	sim::VideoData	data;

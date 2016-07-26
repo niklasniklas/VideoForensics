@@ -22,8 +22,10 @@ namespace gui {
 		void requestUpdate();
 
 	private slots:
-		void on_pushButton_clicked();
+		void on_pushButton_nextFrame_clicked();
+		void on_pushButton_prevFrame_clicked();
 		void on_pushButton_play_clicked();
+		void on_pushButton_exportStills_clicked();
 		void on_pushButton_exportStillImage_clicked();
 		void on_pushButton_loadVideo_clicked();
 		void on_horizontalSlider_timeline_sliderReleased();
@@ -32,11 +34,14 @@ namespace gui {
 		void updateSlider(int frameNo);
 		void updateButtons(bool playing);
 		void fromModel(int NN);
+		void setCurrentTime(std::string);
 
 	private:
 		//	Ui::VFMainWindowClass ui;
 		VideoController *pController;
 		void initSlider();
+
+		CVImageWidget *wg;
 	};
 }
 #endif // VFMAINWINDOW_H
