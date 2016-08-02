@@ -71,6 +71,13 @@ void VideoController::exportStill()
 
 }
 
+void VideoController::exportStills(std::string path, int startFrame, int endFrame) //HÄR 12/7
+{
+	data.saveCurrentFrame("C:\\Temp\\img011.tif");
+
+}
+
+
 int VideoController::getVideoLength()
 {
 	return data.getVideolength();

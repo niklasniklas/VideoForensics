@@ -48,6 +48,9 @@ namespace sim
 	void VideoData::saveCurrentFrame(std::string str)
 	{
 		//cv::imwrite(str,)
+		cv::imwrite(str, currentFrame);//HÄR
+		cv::imwrite("C:\\Temp\\img02.tif", currentFrame);//HÄR
+
 	}
 
 	int VideoData::getVideolength()
@@ -92,6 +95,7 @@ namespace sim
 
 		char tt[9];
 		sprintf(tt,"%s:%s:%s",hh,mm,ss);
+
 
 		std::string time(tt);
 		return time;

@@ -20,7 +20,7 @@ public:
 	void nextFrame();
 	void prevFrame();
 	void exportStill();
-	void exportStills(std::string, int startFrame, int endFrame){}; //HÄR 12/7
+	void exportStills(std::string path, int startFrame, int endFrame); //HÄR 12/7
 	int getVideoLength();
 	bool loadVideo(std::string filename);
 

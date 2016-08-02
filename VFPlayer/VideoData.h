@@ -14,7 +14,7 @@ namespace sim
 		void prevFrame();
 		void jumpFrames(int amount);
 
-		void saveCurrentFrame(std::string str);
+		void saveCurrentFrame(std::string str = "");
 		int  getVideolength();
 		int  getCurrentFrameNumber();
 		void setCurrentFrameNumber(int no);
