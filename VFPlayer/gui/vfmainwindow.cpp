@@ -111,7 +111,8 @@ namespace gui {
 
 	void VFMainWindow::on_pushButton_loadVideo_clicked()
 	{
-		bool ok = pController->loadVideo("C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi");
+//		bool ok = pController->loadVideo("C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi");
+		bool ok = pController->loadVideo("E:\\6.Testdata\\Video\\frex\\2013-04-06 192000.avi");
 
 		if (ok)
 			initSlider();
