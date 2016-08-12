@@ -116,9 +116,10 @@ namespace gui {
 		QStringList fileNames;
 		fileNames.empty();
 
+
 		QFileDialog dlg(this);
 		dlg.setViewMode(QFileDialog::Detail);
-		fileNames = QFileDialog::getOpenFileNames(this, tr("Select Left Image File"), "E:\\6.Testdata", tr("FFMpeg (*.*)"));
+		fileNames = QFileDialog::getOpenFileNames(this, tr("Select Left Image File"), "E:\\6.Testdata\\SL", tr("FFMpeg (*.*)"));
 
 		if (fileNames.isEmpty())
 			return;
