@@ -1,6 +1,8 @@
 #include "vfmainwindow.h"
 #include "opencv2\opencv.hpp"
 #include "VideoController.h"
+#include <QFileDialog>
+#include <QStringList>
 
 namespace gui {
 	VFMainWindow::VFMainWindow(QWidget *parent)
@@ -111,12 +113,27 @@ namespace gui {
 
 	void VFMainWindow::on_pushButton_loadVideo_clicked()
 	{
+		QStringList fileNames;
+		fileNames.empty();
+
+		QFileDialog dlg(this);
+		dlg.setViewMode(QFileDialog::Detail);
+		fileNames = QFileDialog::getOpenFileNames(this, tr("Select Left Image File"), "E:\\6.Testdata", tr("FFMpeg (*.*)"));
+
+		if (fileNames.isEmpty())
+			return;
+
+		QString str;
+		str = fileNames.first();
+
 //		bool ok = pController->loadVideo("C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi");
-		bool ok = pController->loadVideo("E:\\6.Testdata\\Video\\frex\\2013-04-06 192000.avi");
+		bool ok = pController->loadVideo("E:\\6.Testdata\\SL\\FHP-P112.avi");
+//		bool ok = pController->loadVideo(str.toStdString());
 
 		if (ok)
 			initSlider();
 	}
+
 
 	void  VFMainWindow::on_horizontalSlider_timeline_sliderReleased()
 	{
