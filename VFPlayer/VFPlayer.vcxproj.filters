@@ -86,6 +86,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_VideoController.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="ImageManipulator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="vfmainwindow.ui">
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="Sequence.h">
       <Filter>Header Files\sim</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManipulator.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

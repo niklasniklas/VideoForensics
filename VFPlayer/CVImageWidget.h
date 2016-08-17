@@ -3,6 +3,7 @@
 #include <QImage>
 #include <QPainter>
 #include <opencv2/opencv.hpp>
+#include "ImageManipulator.h"
 
 class CVImageWidget : public QWidget
 {
@@ -18,6 +19,9 @@ public:
 	public slots:
 
 		void showImage(const cv::Mat& image) {
+
+			manip.resize(image);
+
 			// Convert the image to the RGB888 format
 			switch (image.type()) {
 			case CV_8UC1:
@@ -51,5 +55,8 @@ protected:
 
 	QImage _qimage;
 	cv::Mat _tmp;
+
+private:
+	ImageManipulator manip;
 };
 
