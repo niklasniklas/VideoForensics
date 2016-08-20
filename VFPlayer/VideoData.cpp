@@ -45,13 +45,30 @@ namespace sim
 	}
 
 
-	void VideoData::saveCurrentFrame(std::string str)
+	void VideoData::saveCurrentFrame(std::string path, std::string filename)
 	{
+		std::string filepath;
+
+		if (filename == "")
+			filename = makeStillImageFilename();
+
+		filepath = path + filename;
+
 		//cv::imwrite(str,)
-		cv::imwrite(str, currentFrame);//HÄR
+		cv::imwrite(filepath, currentFrame);//HÄR
 		cv::imwrite("C:\\Temp\\img02.tif", currentFrame);//HÄR
 
 	}
+
+	std::string	VideoData::makeStillImageFilename()
+	{
+		std::string name;
+
+		filepath.		//skära ut video-filnamnet från hela strängen...
+
+		return name;
+	}
+
 
 	int VideoData::getVideolength()
 	{

@@ -14,7 +14,7 @@ namespace sim
 		void prevFrame();
 		void jumpFrames(int amount);
 
-		void saveCurrentFrame(std::string str = "");
+		void saveCurrentFrame(std::string path, std::string filename = "");
 		int  getVideolength();
 		int  getCurrentFrameNumber();
 		void setCurrentFrameNumber(int no);
@@ -26,6 +26,8 @@ namespace sim
 		cv::VideoCapture	video;
 		std::string			filepath;
 		cv::Mat				currentFrame;
+
+		std::string			makeStillImageFilename();
 
 
 	};
