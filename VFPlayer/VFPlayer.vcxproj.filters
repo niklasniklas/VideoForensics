@@ -121,4 +121,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="icons\pause.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icons\play.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

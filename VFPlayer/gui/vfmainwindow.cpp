@@ -55,7 +55,7 @@ namespace gui {
 
 	void VFMainWindow::updateView(cv::Mat img)
 	{
-		widget_video->showImage(img);
+		widget_video->showManipImage(img);
 		if (wg!=NULL)
 			wg->showImage(img);
 	}
@@ -69,10 +69,23 @@ namespace gui {
 
 	void VFMainWindow::updateButtons(bool playing)
 	{
+		QPixmap *pixmap;
+
 		if (playing)
-			pushButton_play->setText("Pause");
+			pixmap = new QPixmap("C:\\Users\\NIAP\\Documents\\GitHub\\VideoForensics\\VFPlayer\\icons\\pause.png");
 		else
-			pushButton_play->setText("Play");
+			pixmap = new QPixmap("C:\\Users\\NIAP\\Documents\\GitHub\\VideoForensics\\VFPlayer\\icons\\play.png");
+
+		QIcon ButtonIcon(*pixmap);
+		pushButton_play->setText("");
+		pushButton_play->setIcon(ButtonIcon);
+		pushButton_play->setIconSize(pixmap->rect().size());
+//		pushButton_play->setFixedSize(pixmap->rect().size());
+
+		//if (playing)
+		//	pushButton_play->setText("Pause");
+		//else
+		//	pushButton_play->setText("Play");
 	}
 
 
@@ -128,8 +141,8 @@ namespace gui {
 		str = fileNames.first();
 
 //		bool ok = pController->loadVideo("C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi");
-		bool ok = pController->loadVideo("E:\\6.Testdata\\SL\\FHP-P112.avi");
-//		bool ok = pController->loadVideo(str.toStdString());
+//		bool ok = pController->loadVideo("E:\\6.Testdata\\SL\\FHP-P112.avi");
+		bool ok = pController->loadVideo(str.toStdString());
 
 		if (ok)
 			initSlider();

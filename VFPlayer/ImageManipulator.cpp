@@ -13,6 +13,7 @@ ImageManipulator::~ImageManipulator()
 
 cv::Mat ImageManipulator::resize(cv::Mat img)
 {
-	img = img + img;
-	return img;
+	cv::Mat img2 = img.clone();
+	img2 = img2 + img2;
+	return img2;
 }

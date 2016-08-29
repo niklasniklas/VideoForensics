@@ -19,3 +19,10 @@ void CVImageWidget::mousePressEvent(QMouseEvent* event)
 //		int b = (_parent)->images->count();
 	}
 }
+
+
+void CVImageWidget::showManipImage(const cv::Mat& image) //HÄR
+{
+	cv::Mat img = manip.resize(image);
+	showImage(img);
+}

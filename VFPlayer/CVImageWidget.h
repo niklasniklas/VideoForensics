@@ -20,8 +20,6 @@ public:
 
 		void showImage(const cv::Mat& image) {
 
-			manip.resize(image);
-
 			// Convert the image to the RGB888 format
 			switch (image.type()) {
 			case CV_8UC1:
@@ -43,6 +41,9 @@ public:
 
 			repaint();
 		}
+
+		void showManipImage(const cv::Mat& image);		
+		void showThumbernailImage(const cv::Mat& image) {}	//HÄR
 
 protected:
 	void paintEvent(QPaintEvent* /*event*/) {
