@@ -16,6 +16,25 @@ namespace sim
 	{
 		filepath = name;
 		bool result = video.open(name);
+
+
+
+		cv::Mat tmp;
+		cv::Mat *ptmp;
+
+		int len = getVideolength();
+		for (int i = 0; i < len; i++) {
+			video >> tmp;
+			ptmp = new cv::Mat(tmp.rows, tmp.cols, tmp.type());
+			*ptmp = tmp.clone();
+			*ptmp = *ptmp + *ptmp;
+			imgvect.push_back(ptmp);
+
+			// HÄR: Skicka "int" för hur långt inläsning kommit till VideoController -> Gui.slider
+		}
+
+		currentIndex = 1;
+
 		nextFrame();
 		return result;
 		//cv::VideoCapture cap(filename); // open videofile
@@ -24,7 +43,10 @@ namespace sim
 
 	void VideoData::nextFrame()
 	{
-		video >> currentFrame;
+		//video >> currentFrame;
+		cv::Mat tmp;
+		currentFrame = *imgvect[currentIndex];
+		currentIndex++;
 	}
 
 	void VideoData::prevFrame()
@@ -97,6 +119,11 @@ namespace sim
 		return time;
 
 
+	}
+
+	double VideoData::getFrameRate()
+	{
+		return video.get(cv::CAP_PROP_FPS);
 	}
 	/*
 cv::CAP_PROP_POS_MSEC Current position of the video file in milliseconds.

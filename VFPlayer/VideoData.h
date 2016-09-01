@@ -21,12 +21,15 @@ namespace sim
 
 		std::string getCurrentTime();
 		cv::Mat		getCurrentFrame();
+		double		getFrameRate();
 
 	private:
 		cv::VideoCapture	video;
 		std::string			filepath;
 		cv::Mat				currentFrame;
 
+		std::vector<cv::Mat*> imgvect;
+		int currentIndex;
 
 	};
 

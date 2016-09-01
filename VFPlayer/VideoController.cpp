@@ -55,9 +55,12 @@ void VideoController::timerEvent(QTimerEvent *event)
 
 void VideoController::togglePlayPause()
 {
+//	int delay = int(1000.0 / data.getFrameRate());
 	stillPlay = !stillPlay;
-	if (stillPlay)
+	if (stillPlay) {
+//		timer.start(delay, this);
 		timer.start(0, this);
+	}
 	else
 		timer.stop();
 
