@@ -128,8 +128,8 @@ namespace gui {
 		str = fileNames.first();
 
 //		bool ok = pController->loadVideo("C:\\2.Testdata\\Video\\frex\\2013-04-06 192000.avi");
-		bool ok = pController->loadVideo("E:\\6.Testdata\\SL\\FHP-P112.avi");
-//		bool ok = pController->loadVideo(str.toStdString());
+//		bool ok = pController->loadVideo("E:\\6.Testdata\\SL\\FHP-P112.avi");
+		bool ok = pController->loadVideo(str.toStdString());
 
 		if (ok)
 			initSlider();

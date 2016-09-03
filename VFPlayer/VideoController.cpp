@@ -25,21 +25,21 @@ VideoController::~VideoController()
 }
 void VideoController::updateGUI()
 {
-	emit updateView(data.getCurrentFrame());
-	emit updateSlider(data.getCurrentFrameNumber());
-	emit updateCurrentTime(data.getCurrentTime());
+	emit updateView(stream.getCurrentFrame());
+	emit updateSlider(stream.getCurrentFrameNumber());
+	emit updateCurrentTime(stream.getCurrentTime());
 	emit updateButtons(stillPlay);
 }
 
 void VideoController::nextFrame()
 {
-	data.nextFrame();
+	stream.nextFrame();
 	updateGUI();
 }
 
 void VideoController::prevFrame()
 {
-	data.prevFrame();
+	stream.prevFrame();
 	updateGUI();
 }
 
@@ -47,7 +47,7 @@ void VideoController::timerEvent(QTimerEvent *event)
 {
 	if(stillPlay)
 	{
-		data.nextFrame();
+		stream.nextFrame();
 	}
 	updateGUI();
 }
@@ -69,19 +69,19 @@ void VideoController::togglePlayPause()
 
 void VideoController::exportStill()
 {
-	cv::imwrite("C:\\Temp\\img01.tif", data.getCurrentFrame());//HÄR
+	cv::imwrite("C:\\Temp\\img01.tif", stream.getCurrentFrame());//HÄR
 	//data.saveCurrent("C:\\Temp\\img01.tif");
 
 }
 
 int VideoController::getVideoLength()
 {
-	return data.getVideolength();
+	return stream.getVideolength();
 }
 
 bool VideoController::loadVideo(std::string filename)
 {
-	bool result = data.loadVideo(filename);
+	bool result = stream.loadVideo(filename);
 	updateGUI();
 
 	return result;
@@ -90,7 +90,7 @@ bool VideoController::loadVideo(std::string filename)
 void VideoController::setVideoFrame(int no)
 {
 	emit sendToGUI(no);//HÄR
-	data.setCurrentFrameNumber(no);
+	stream.setCurrentFrameNumber(no);
 	updateGUI();
 }
 

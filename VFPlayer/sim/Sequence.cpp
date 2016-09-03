@@ -12,11 +12,6 @@ namespace sim {
 	}
 
 
-	// returns next frame in sequence
-	cv::Mat Sequence::nextFrame()
-	{
-		return cv::Mat();
-	}
 
 
 

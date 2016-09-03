@@ -3,7 +3,8 @@
 #include <QObject>
 #include "opencv2\opencv.hpp"
 #include "gui\vfmainwindow.h"
-#include "VideoData.h"
+#include "sim\VideoData.h"
+#include "sim\ImageStream.h"
 #include <QBasicTimer>
 
 class VideoController : public QObject
@@ -41,9 +42,10 @@ protected:
 	void updateGUI();
 
 private:
-	sim::VideoData	data;
-	bool			stillPlay;
-	QBasicTimer		timer;
+	sim::ImageStream	stream;
+//	sim::VideoData		data;
+	bool				stillPlay;
+	QBasicTimer			timer;
 
 
 	int NN;
